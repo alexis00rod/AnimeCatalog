@@ -1,19 +1,43 @@
-import { Link, NavLink } from 'react-router-dom'
+import { useState,useEffect } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 import logo from '../../public/favicon.ico'
 import { SearchInput } from './SearchInput'
 
 export const Navbar = () => {
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [openMenu, setOpenMenu] = useState(false)
+
     return (
-        <header className="sticky top-0 left-0 z-20 w-full h-max px-2 py-2 bg-slate-900 text-white">
-            <nav className="px-1 py-1 container mx-auto flex flex-row items-center gap-4">
-                <Link to='/' className='px-1 py-1 flex flex-row items-center gap-2'>
-                    <img src={logo} alt="logo" className="w-10 h-10" />
-                    <h1 className="text-3xl">Anime Catalog</h1>
+        <header className="navbar">
+            <nav className="navbar-container">
+                <button className='navbar-btn md:hidden' onClick={() => setOpenMenu(!openMenu)}>
+                    {openMenu ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-bars"></i>}
+                </button> 
+                <Link to='/' className='navbar-logo'>
+                    <img src={logo} alt="Anime Catalog Logo"/>
+                    <h1>Anime Catalog</h1>
+                </Link> 
+                {window.innerWidth < 768
+                ?   openMenu && <ul className='navbar-menu-mobile'>
+                        {[['/','Home'],['/catalog',"Catalog"]].map((e,i) => <li key={i} className="px-1 py-1">
+                            <NavLink to={`${e[0]}`} className={({isActive}) => isActive ? "navbar-menu-link-active" : "navbar-menu-link"} onClick={() => setOpenMenu(false)}>
+                                {e[1]}
+                            </NavLink>
+                        </li>)}
+                    </ul>
+                :   <ul className='navbar-menu-screen'>
+                        {[['/','Home'],['/catalog',"Catalog"]].map((e,i) => <li key={i} className="px-1 py-1">
+                            <NavLink to={`${e[0]}`} className={({isActive}) => isActive ? "navbar-menu-link-active" : "navbar-menu-link"} onClick={() => setOpenMenu(false)}>
+                                {e[1]}
+                            </NavLink>
+                        </li>)}
+                    </ul>}
+                <Link to='/search' className='navbar-btn'>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </Link>
-                <div className='grow flex flex-row items-center justify-end'>
-                    <SearchInput />            
-                </div>
+                {location.pathname !== "/" && <button className='navbar-btn' onClick={() => navigate('/')}><i className='fa-solid fa-arrow-left'></i></button>}
             </nav>
         </header>
     )
