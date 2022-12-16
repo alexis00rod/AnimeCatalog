@@ -1,16 +1,13 @@
-import { useState,useEffect } from 'react'
+import { useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-
 import logo from '../../public/favicon.ico'
-import { SearchInput } from './SearchInput'
 
 export const Navbar = () => {
-    const location = useLocation()
+    const {pathname} = useLocation()
     const navigate = useNavigate()
     const [openMenu, setOpenMenu] = useState(false)
 
-    return (
-        <header className="navbar">
+    return <header className="navbar">
             <nav className="navbar-container">
                 <button className='navbar-btn md:hidden' onClick={() => setOpenMenu(!openMenu)}>
                     {openMenu ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-bars"></i>}
@@ -37,8 +34,8 @@ export const Navbar = () => {
                 <Link to='/search' className='navbar-btn'>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </Link>
-                {location.pathname !== "/" && <button className='navbar-btn' onClick={() => navigate('/')}><i className='fa-solid fa-arrow-left'></i></button>}
+                {/* Back history button */}
+                {pathname !== "/" && <button className='navbar-btn' onClick={() => navigate('/')}><i className='fa-solid fa-arrow-left'></i></button>}
             </nav>
         </header>
-    )
 }

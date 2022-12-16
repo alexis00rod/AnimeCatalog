@@ -1,25 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { CatalogProvider } from './context/CatalogContext'
-import { App } from './App'
-import { Home } from './routes/Home'
-import { Detail } from './routes/Detail'
-// import { Search } from './routes/Search'
+import { App } from './components/index'
+import { HomePage,CatalogPage,DetailPage,SearchPage } from './pages/index'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
-            <CatalogProvider>
-                <Routes>
-                    <Route path='/' element={<App />}>
-                        <Route path='/' element={<Home />}></Route>
-                        <Route path='anime/:id' element={<Detail />} />
-                        {/* <Route path='search' element={<Search />} /> */}
-                    </Route>
-                </Routes>
-            </CatalogProvider>
+            <Routes>
+                <Route path='/' element={<App />}>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path=':id' element={<DetailPage />} />
+                    <Route path='search' element={<SearchPage />} />
+                    <Route path='catalog' element={<CatalogPage />} />
+                    <Route path='catalog/:genre' element={<CatalogPage />} />
+                </Route>
+            </Routes>
         </BrowserRouter>
     </React.StrictMode>
 )
