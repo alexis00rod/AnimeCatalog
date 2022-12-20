@@ -1,11 +1,12 @@
 import { options } from './keys.js'
 
-const urlCatalog = (size,genre,by,order) =>  `https://anime-db.p.rapidapi.com/anime?page=1&size=${size}&genres=${genre}&sortBy=${by}&sortOrder=${order}`
-const urlGenres = 'https://anime-db.p.rapidapi.com/genre'
-
 // Funcion para obtener la lista completa de animes
-export const getCatalog = async (size,genre,by,order) => {
-    const request = await fetch(urlCatalog(size,genre,by,order),options)
+export const getCatalog = async (page,genre,by,order) => {
+    const url = genre === "All"
+        ?   `https://anime-db.p.rapidapi.com/anime?page=${page}&size=18&sortBy=${by}&sortOrder=${order}`
+        :   `https://anime-db.p.rapidapi.com/anime?page=${page}&size=18&genres=${genre}&sortBy=${by}&sortOrder=${order}`
+
+    const request = await fetch(url,options)
     const json = await request.json()
     const {data} = json
     return data
@@ -13,7 +14,25 @@ export const getCatalog = async (size,genre,by,order) => {
 
 // Funcion para obtener los generos
 export const getGenres = async () => {
-    const request = await fetch(urlGenres,options)
+    const url = 'https://anime-db.p.rapidapi.com/genre'
+    const request = await fetch(url,options)
     const json = await request.json()
     return json
+}
+
+// Funcion para obtener detalles de anime
+export const getDetail = async (id) => {
+    const url = `https://anime-db.p.rapidapi.com/anime/by-id/${id}`
+    const request = await fetch(url,options)
+    const json = await request.json()
+    return json
+}
+
+// Funcion para buscar anime 
+export const getSearchAnime = async (anime) => {
+    const url = `https://anime-db.p.rapidapi.com/anime?page=1&size=10&search=${anime}`
+    const request = await fetch(url,options)
+    const json = await request.json()
+    const {data} = json
+    return data
 }

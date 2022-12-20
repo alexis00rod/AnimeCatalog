@@ -4,16 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.app {
-
-}
-
 /* Navegation Bar */
 .navbar {
-    @apply sticky top-0 left-0 z-20 w-full h-20 bg-slate-900 text-white;
+    @apply sticky top-0 left-0 z-20 w-full h-20 bg-zinc-900 text-white;
 }
 .navbar-container {
-    @apply relative container h-full mx-auto px-2 flex items-center gap-2;
+    @apply relative w-full max-w-screen-xl h-full mx-auto px-2 flex items-center gap-2;
 }
 .navbar-logo {
     @apply w-max h-full px-1 py-1 flex items-center gap-1 flex-none grow;
@@ -25,35 +21,45 @@
     @apply px-1 h-full flex items-center text-2xl font-medium hidden md:flex;
 }
 .navbar-menu-mobile {
-    @apply absolute top-full left-0 w-full flex flex-col gap-2 px-2 pt-2 pb-4 bg-slate-800;
+    @apply absolute top-full left-0 w-full flex flex-col gap-2 px-2 pt-2 pb-4 bg-zinc-800;
 }
 .navbar-menu-screen {
     @apply w-full h-full px-2 flex items-center gap-2;
 }
 .navbar-menu-link {
-    @apply px-2 py-1 text-slate-400 text-xl duration-300 hover:text-slate-100;
+    @apply px-2 py-1 text-zinc-100/50 text-xl duration-300 hover:text-zinc-100;
 }
 .navbar-menu-link-active {
-    @apply px-2 py-1 text-slate-100 text-xl font-medium;
+    @apply px-2 py-1 text-zinc-100 text-xl font-medium;
 }
 .navbar-btn {
-    @apply w-10 h-10 flex items-center justify-center flex-none text-slate-300 bg-slate-600 rounded-lg duration-300 hover:text-slate-100 hover:bg-slate-700;
+    @apply w-10 h-10 flex items-center justify-center flex-none text-zinc-300 bg-zinc-600 rounded-lg duration-300 hover:text-zinc-100 hover:bg-zinc-700;
 }
 .navbar-search {
-    @apply debug absolute top-full left-0 w-full px-2 py-2 flex items-center justify-center gap-2 bg-slate-800;
+    @apply absolute top-full left-0 w-full px-2 py-2 flex items-center justify-center gap-2 bg-zinc-800;
 }
 .navbar-search input {
-    @apply debug max-w-md px-2 py-2 grow text-xl bg-transparent outline-none;
+    @apply max-w-md px-2 py-2 grow text-xl bg-transparent outline-none;
 }
 
 /* Main */
 .main {
-    @apply debug w-full flex flex flex-col grow;
+    @apply w-full flex flex flex-col grow;
 }
 .main-container {
-    @apply debug debug px-2 py-2 container mx-auto flex flex-col gap-2 grow;
+    @apply px-2 py-2 w-full max-w-screen-xl mx-auto flex flex-col gap-2 grow;
 }
 
-.debug {
-    border: 1px solid crimson;
-}
+/* Card */
+.card { @apply relative w-full h-64 rounded-lg overflow-hidden;}
+.card:hover .card-img { @apply scale-105 rotate-2}
+.card-img { @apply w-full h-full duration-300 object-cover;}
+.card-main { @apply absolute top-0 left-0 w-full h-full px-2 py-2 flex flex-col justify-end bg-gradient-to-b from-zinc-900/5 to-zinc-900/80;}
+
+/* Select */
+.select { @apply w-full max-w-xs px-3 py-2 flex flex-col bg-zinc-200 border border-zinc-100 rounded-lg;}
+.select label { @apply text-sm text-zinc-500;}
+.select select { @apply bg-transparent outline-none;}
+
+/* Debug */
+.debug { @apply border border-red-500}
