@@ -31,9 +31,9 @@ export const Navbar = () => {
                             </NavLink>
                         </li>)}
                     </ul>}
-                <Link to='/search' className='navbar-btn'>
+                { pathname !== "/search" && <Link to='/search' className='navbar-btn'>
                     <i className="fa-solid fa-magnifying-glass"></i>
-                </Link>
+                </Link>}
                 {/* Back history button */}
                 {pathname !== "/" && <button className='navbar-btn' onClick={() => navigate('/')}><i className='fa-solid fa-arrow-left'></i></button>}
             </nav>

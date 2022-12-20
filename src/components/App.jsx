@@ -10,7 +10,7 @@ export const App = () => {
     },[pathname])
 
     return <section className="w-full flex flex-col gap-4 bg-slate-200 font-raleway">
-                <div className="debug min-h-screen flex flex-col grow">
+                <div className="min-h-screen flex flex-col grow">
                     <Navbar />
                     <Outlet />
                 </div>

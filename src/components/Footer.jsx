@@ -3,8 +3,8 @@ import logo from '../../public/favicon.ico'
 
 export const Footer = () => {
     return (
-        <footer className='debug bg-slate-900 text-white flex flex-col items-center'>
-            <div className='my-3 mx-auto px-2 py-2 container flex wrap'>
+        <footer className='bg-zinc-900 text-white flex flex-col items-center'>
+            <div className='w-full max-w-screen-xl my-3 mx-auto px-2 py-2 flex'>
                 <Link to='/' className='pl-2 pr-4 py-1 w-max flex items-center flex-none gap-2'>
                     <img src={logo} alt="logo" className="w-8 h-8" />
                     <h1 className="text-xl">Anime Catalog</h1>

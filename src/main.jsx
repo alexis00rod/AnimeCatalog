@@ -11,10 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Routes>
                 <Route path='/' element={<App />}>
                     <Route path='/' element={<HomePage />} />
+                    <Route path='catalog' element={<CatalogPage />} />
                     <Route path=':id' element={<DetailPage />} />
                     <Route path='search' element={<SearchPage />} />
-                    <Route path='catalog' element={<CatalogPage />} />
-                    <Route path='catalog/:genre' element={<CatalogPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
