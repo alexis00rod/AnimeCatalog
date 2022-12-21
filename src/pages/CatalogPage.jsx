@@ -13,8 +13,8 @@ export const CatalogPage = () => {
     const [catalogSortOrder, setCatalogSortOrder] = useState("asc")
 
     useEffect(() => {
-        // getGenres()
-        // .then(resp => setGenres(resp))
+        getGenres()
+        .then(resp => setGenres(resp))
     },[])
     
     useEffect(() => {
@@ -38,7 +38,7 @@ export const CatalogPage = () => {
                         <label htmlFor="genre">Genre</label>
                         <select name="" id="" defaultValue={catalogGenre} onChange={({target:{value}}) => setCatalogGenre(value)}>
                             <option value="All">All</option>
-                            <option value="Fantasy">Fantasy</option>
+                            {genres.map(e => <option value={e._id}>{e._id}</option>)}
                         </select>
                     </div>
                     <div className='select'>
