@@ -5,6 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* App */
+.app {
+    @apply w-full flex flex-col gap-4 bg-zinc-800 text-zinc-100 font-raleway;
+}
+.app-container {
+    @apply min-h-screen flex flex-col grow;
+}
+
 /* Navegation Bar */
 .navbar {
     @apply sticky top-0 left-0 z-20 w-full h-20 bg-zinc-900 text-white;
@@ -20,9 +28,6 @@
 }
 .navbar-logo h1 {
     @apply px-1 h-full flex items-center text-xl font-medium md:text-2xl;
-}
-.navbar-btn {
-    @apply w-9 h-9 flex items-center justify-center flex-none text-zinc-100 bg-zinc-700 rounded-lg duration-300 hover:bg-zinc-600;
 }
 
 /* Main */
@@ -60,11 +65,23 @@
 
 /* Buttons */
 .btn {
-    @apply h-9 flex items-center justify-center;
+    @apply h-9 flex items-center justify-center gap-2 text-zinc-100 duration-300;
+}
+/* Button toggle */
+.btn-toggle {
+    @apply w-9 flex-none  rounded-lg bg-zinc-700 hover:bg-zinc-700/75;
+}
+/* Button primary */
+.btn-primary {
+    @apply w-max px-3 bg-red-600 hover:bg-red-500 rounded-lg;
+}
+/* Button form */
+.btn-form {
+    @apply w-full bg-red-600 hover:bg-red-500 rounded-lg;
 }
 /* Button pagination */
 .btn-pagination {
-    @apply px-3 text-zinc-100 duration-300;
+    @apply px-3;
 }
 .btn-pagination-disabled {
     @apply bg-zinc-900 cursor-default;
