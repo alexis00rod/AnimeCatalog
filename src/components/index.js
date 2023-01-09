@@ -5,5 +5,6 @@ import { Loader } from "./Loader";
 import { Footer } from "./Footer";
 import { Card } from "./Card";
 import { Pagination } from "./Pagination";
+import { Catalog } from "./Catalog";
 
-export {App,Navbar,Main,Loader,Footer,Card,Pagination}
+export {App, Navbar, Main, Loader, Footer, Card, Pagination, Catalog}
