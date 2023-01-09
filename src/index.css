@@ -5,6 +5,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Logo */
+.logo {
+    @apply w-max h-max px-1 py-1 flex items-center gap-1 flex-none text-2xl;
+}
+.logo img {
+    @apply w-10 h-10;
+}
+.logo h1,.logo h2 {
+    @apply font-ninja;
+}
+.logo-xs {
+    @apply text-xl;
+}
+.logo-xs img {
+    @apply w-9 h-9;
+}
+
 /* App */
 .app {
     @apply w-full flex flex-col gap-4 bg-zinc-800 text-zinc-100 font-raleway;
@@ -19,15 +36,6 @@
 }
 .navbar-container {
     @apply relative w-full max-w-screen-xl h-full mx-auto px-2 flex items-center gap-2;
-}
-.navbar-logo {
-    @apply w-max h-full px-1 py-1 flex items-center gap-1 flex-none grow;
-}
-.navbar-logo img {
-    @apply w-10 h-10;
-}
-.navbar-logo h1 {
-    @apply px-1 h-full flex items-center text-xl font-medium md:text-2xl;
 }
 
 /* Main */
