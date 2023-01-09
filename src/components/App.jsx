@@ -3,18 +3,20 @@ import { Outlet, useLocation } from "react-router-dom"
 import { Navbar, Footer } from './index'
 
 export const App = () => {
-    const {pathname} = useLocation()
+  const {pathname} = useLocation()
 
-    useEffect(() => {
-        window.scrollTo(0,0)
-    },[pathname])
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[pathname])
 
-    return <section className="w-full flex flex-col gap-4 bg-slate-200 font-raleway">
-                <div className="min-h-screen flex flex-col grow">
-                    <Navbar />
-                    <Outlet />
-                </div>
-                <Footer />
-            </section>
+  return (
+    <section className="app">
+      <div className="app-container">
+        <Navbar />
+        <Outlet />
+      </div>
+      <Footer />
+    </section>
+  )
 }
 
