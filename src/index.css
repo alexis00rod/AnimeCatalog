@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ninja');
 
 @tailwind base;
 @tailwind components;
@@ -18,28 +19,10 @@
     @apply w-10 h-10;
 }
 .navbar-logo h1 {
-    @apply px-1 h-full flex items-center text-2xl font-medium hidden md:flex;
-}
-.navbar-menu-mobile {
-    @apply absolute top-full left-0 w-full flex flex-col gap-2 px-2 pt-2 pb-4 bg-zinc-800;
-}
-.navbar-menu-screen {
-    @apply w-full h-full px-2 flex items-center gap-2;
-}
-.navbar-menu-link {
-    @apply px-2 py-1 text-zinc-100/50 text-xl duration-300 hover:text-zinc-100;
-}
-.navbar-menu-link-active {
-    @apply px-2 py-1 text-zinc-100 text-xl font-medium;
+    @apply px-1 h-full flex items-center text-xl font-medium md:text-2xl;
 }
 .navbar-btn {
-    @apply w-10 h-10 flex items-center justify-center flex-none text-zinc-300 bg-zinc-600 rounded-lg duration-300 hover:text-zinc-100 hover:bg-zinc-700;
-}
-.navbar-search {
-    @apply absolute top-full left-0 w-full px-2 py-2 flex items-center justify-center gap-2 bg-zinc-800;
-}
-.navbar-search input {
-    @apply max-w-md px-2 py-2 grow text-xl bg-transparent outline-none;
+    @apply w-9 h-9 flex items-center justify-center flex-none text-zinc-100 bg-zinc-700 rounded-lg duration-300 hover:bg-zinc-600;
 }
 
 /* Main */
@@ -56,10 +39,42 @@
 .card-img { @apply w-full h-full duration-300 object-cover;}
 .card-main { @apply absolute top-0 left-0 w-full h-full px-2 py-2 flex flex-col justify-end bg-gradient-to-b from-zinc-900/5 to-zinc-900/80;}
 
+/* Input text */
+.input-text { @apply w-full px-3 py-2 text-sm bg-zinc-800/50 border border-zinc-900 rounded-lg outline-none placeholder:text-zinc-400;}
+
 /* Select */
-.select { @apply w-full max-w-xs px-3 py-2 flex flex-col bg-zinc-200 border border-zinc-100 rounded-lg;}
-.select label { @apply text-sm text-zinc-500;}
-.select select { @apply bg-transparent outline-none;}
+.select {
+    @apply relative w-full max-w-xs flex flex-col justify-center bg-zinc-800/50 border border-zinc-900 rounded-lg;
+}
+.select label {
+    @apply absolute top-0 left-0 pt-2 pl-3 text-sm text-zinc-400;
+}
+.select select {
+    @apply relative bg-transparent w-full h-full pt-6 pb-2 pl-3 outline-none appearance-none;
+}
+.select::after {
+    content: '\f078';
+    font-family: 'Font Awesome 5 Free';
+    @apply absolute top-0 bottom-0 right-0 pr-3 flex items-center justify-center text-xs font-black pointer-events-none;
+}
+
+/* Buttons */
+.btn {
+    @apply h-9 flex items-center justify-center;
+}
+/* Button pagination */
+.btn-pagination {
+    @apply px-3 text-zinc-100 duration-300;
+}
+.btn-pagination-disabled {
+    @apply bg-zinc-900 cursor-default;
+}
+.btn-pagination-link {
+    @apply bg-zinc-700 hover:bg-red-600;
+}
+.btn-pagination-link-active {
+    @apply bg-red-600;
+}
 
 /* Debug */
-.debug { @apply border border-red-500}
+.debug { @apply border border-red-600}
