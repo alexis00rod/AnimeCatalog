@@ -53,17 +53,17 @@
 .card-main { @apply absolute top-0 left-0 w-full h-full px-2 py-2 flex flex-col justify-end bg-gradient-to-b from-zinc-900/5 to-zinc-900/80;}
 
 /* Input text */
-.input-text { @apply w-full px-3 py-2 text-sm bg-zinc-800/50 border border-zinc-900 rounded-lg outline-none placeholder:text-zinc-400;}
+.input-text { @apply w-full px-3 py-2 text-sm bg-zinc-800 border border-zinc-900 rounded-lg outline-none placeholder:text-zinc-400 focus:ring focus:ring-red-600/75;}
 
 /* Select */
 .select {
-    @apply relative w-full max-w-xs flex flex-col justify-center bg-zinc-800/50 border border-zinc-900 rounded-lg;
+    @apply relative w-full md:max-w-xs flex flex-col justify-center bg-zinc-800/50 border border-zinc-900 rounded-lg;
 }
 .select label {
-    @apply absolute top-0 left-0 pt-2 pl-3 text-sm text-zinc-400;
+    @apply absolute top-0 left-0 pt-2 pl-3 text-sm text-zinc-400 z-10;
 }
 .select select {
-    @apply relative bg-transparent w-full h-full pt-6 pb-2 pl-3 outline-none appearance-none;
+    @apply relative bg-zinc-800 w-full h-full pt-6 pb-2 pl-3 rounded-lg outline-none appearance-none focus:ring focus:ring-red-600/75;
 }
 .select::after {
     content: '\f078';

@@ -1,6 +1,5 @@
 import React from 'react'
-import { NavLink, useParams } from 'react-router-dom'
-import { useCatalog } from '../hooks/useCatalog'
+import { Link, NavLink } from 'react-router-dom'
 
 const PaginationLink = ({children,...props}) => {
   return <NavLink {...props} 
